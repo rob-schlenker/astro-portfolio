@@ -6,18 +6,18 @@ export const SITE_CONFIG: SiteConfig = {
   description:
     "Front End Developer based in Michigan, USA. I specialize in web development and maintenance.",
   lang: "en",
-  siteLogo: "/alejandro-small.jpg",
+  siteLogo: "/rs-profile.jpeg",
   navLinks: [
+    { text: "About", href: "#about" },
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
-    { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/immois/astro-zen" },
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "Github", href: "https://github.com/immois/astro-zen" },
-    { text: "Youtube", href: "https://github.com/immois/astro-zen" },
-    { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
+    { text: "Twitter", href: "https://github.com/rob-schlenker" },
+    { text: "LinkedIn", href: "https://github.com/rob-schlenker" },
+    { text: "Github", href: "https://github.com/rob-schlenker" },
+    { text: "Youtube", href: "https://github.com/rob-schlenker" },
+    { text: "Dribbble", href: "https://github.com/rob-schlenker" },
   ],
   socialImage: "/zen-og.png",
   canonicalURL: "https://astro-zen.vercel.app",
@@ -91,7 +91,7 @@ export const SITE_CONTENT: SiteContent = {
 
       Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
     `,
-    image: "/alejandro-big.jpg",
+    image: "/rs-profile.jpeg",
   },
 };
 
