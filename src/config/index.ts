@@ -64,10 +64,10 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
-      name: 'Tao Unfold',
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: '/',
-      linkSource: 'https://github.com/immois/astro-zen',
+      name: 'Tao Unfolds',
+      summary: "A site that reveals a new Tao Te Ching verse each day, with a focus on simplicity and elegance. Features include an audio player secotin to help with meditation and a cookie saved journaling section.",
+      linkPreview: 'https://tao-unfolds.vercel.app/',
+      linkSource: 'https://github.com/rob-schlenker/tao-unfolds',
       image: '/spotifu.png',
     },
     {
