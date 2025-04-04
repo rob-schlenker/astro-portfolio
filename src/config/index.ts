@@ -17,7 +17,6 @@ export const SITE_CONFIG: SiteConfig = {
     { text: 'LinkedIn', href: 'https://github.com/rob-schlenker' },
     { text: 'Github', href: 'https://github.com/rob-schlenker' },
     { text: 'Youtube', href: 'https://github.com/rob-schlenker' },
-    { text: 'Dribbble', href: 'https://github.com/rob-schlenker' },
   ],
   socialImage: '/zen-og.png',
   canonicalURL: 'https://astro-zen.vercel.app',
