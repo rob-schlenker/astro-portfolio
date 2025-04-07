@@ -14,7 +14,7 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   socialLinks: [
     { text: 'Twitter', href: 'https://github.com/rob-schlenker' },
-    { text: 'LinkedIn', href: 'https://github.com/rob-schlenker' },
+    { text: 'LinkedIn', href: 'https://linkedin.com/rob-schlenker' },
     { text: 'Github', href: 'https://github.com/rob-schlenker' },
     { text: 'Youtube', href: 'https://github.com/rob-schlenker' },
   ],
@@ -94,4 +94,4 @@ export const SITE_CONTENT: SiteContent = {
   },
 }
 
-// #5755ff
+// #5755f
