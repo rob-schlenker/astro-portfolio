@@ -30,7 +30,7 @@ export default {
         tight: "-0.25px",
       },
       colors: {
-        primary: "#3fe5ca",
+        primary: "rgb(34 140 123)",
         neutral: "#94A3B8",
         white: "#E2E8F0",
         black: "#0E141B",

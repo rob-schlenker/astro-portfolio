@@ -94,4 +94,4 @@ export const SITE_CONTENT: SiteContent = {
   },
 }
 
-// #5755f
+// #5755ff
