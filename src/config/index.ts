@@ -4,7 +4,7 @@ export const SITE_CONFIG: SiteConfig = {
   title: 'Rob Schlenker — Mobile & Web Developer',
   author: 'Rob Schlenker',
   description:
-    'Front End Developer based in Michigan, USA. I specialize in web development and maintenance.',
+    'Web Developer based in Michigan, USA. I specialize in web development and maintenance.',
   lang: 'en',
   siteLogo: '/rs-profile.jpeg',
   navLinks: [
@@ -86,9 +86,7 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      Hi, I’m Rob Schlenker, a passionate Mobile and Web Developer with a knack for crafting seamless digital experiences. With a strong background in both Android and iOS development, as well as front-end web technologies, I thrive in the intersection where creativity meets technology.
-
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
+      Hi, I'm Rob Schlenker. As a highly motivated Web Developer, I possess a strong foundation in HTML/CSS, JavaScript, Angular, React, and other modern web technologies.  My experience includes website creation, reskinning, maintenance, and a focus on security and accessibility.  I am passionate about staying current with the latest trends and technologies to develop innovative and effective digital solutions.  I am dedicated to continuous learning and growth in the ever-evolving field of web development, with a proven track record of adapting to new frameworks and tools to exceed client expectations.
     `,
     image: '/rs-profile.jpeg',
   },
