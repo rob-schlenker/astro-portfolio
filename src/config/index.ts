@@ -27,7 +27,7 @@ export const SITE_CONTENT: SiteContent = {
     name: 'Rob Schlenker',
     specialty: 'Web Developer',
     summary:
-      'Front End Developer based in Michigan, USA. I specialize in web development and maintenance.',
+      'Web Developer based in Michigan, USA. I specialize in web development and maintenance.',
     email: 'schlenk7@gmail.com',
   },
   // experience: [
