@@ -1,27 +1,35 @@
 ---
 import type { HeroProps } from "@types";
+import ThreeScene from "./ThreeScene.astro";
 type Props = HeroProps;
 
 const { name, specialty, summary, email } = Astro.props;
 ---
 
-<section class="py-24 md:py-32" id="#hero">
-  <h1
-    class="text-7xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest"
-  >
-    {name}
-  </h1>
-  <p
-    class="text-4xl sm:text-5xl leading-[46px] md:text-6xl font-serif text-primary font-bold tracking-tighter mb-9"
-  >
-    {specialty}
-  </p>
-  <p class="text-neutral font-normal text-base md:text-lg mb-16">
-    {summary}
-  </p>
+<section class="py-24 md:py-32 relative overflow-hidden" id="#hero">
+  <div class="max-w-3xl">
+    <h1
+      class="text-7xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest"
+    >
+      {name}
+    </h1>
+    <p
+      class="text-4xl sm:text-5xl leading-[46px] md:text-6xl font-serif text-primary font-bold tracking-tighter mb-9"
+    >
+      {specialty}
+    </p>
+    <p class="text-neutral font-normal text-base md:text-lg mb-16">
+      {summary}
+    </p>
 
-  <a
-    class="text-sm py-5 px-8 text-[#fff] inline-block font-medium leading-5 bg-primary rounded-full hover:bg-primary/80 transition-all duration-200 ease-in-out"
-    href={`mailto:${email}`}>Get in Touch</a
-  >
+    <a
+      class="text-sm py-5 px-8 text-[#fff] inline-block font-medium leading-5 bg-primary rounded-full hover:bg-primary/80 transition-all duration-200 ease-in-out"
+      href={`mailto:${email}`}>Get in Touch</a
+    >
+  </div>
+  <ThreeScene 
+    width="400px" 
+    height="400px" 
+    className="absolute -right-32 -top-36 -z-10 md:-top-32"
+  />
 </section>
