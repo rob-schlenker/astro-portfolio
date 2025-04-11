@@ -14,7 +14,6 @@ const { width = "100%", height = "100%", className = "" } = Astro.props;
 
 <script>
   import * as THREE from 'three';
-  import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
   // Wait for the DOM to be fully loaded
   document.addEventListener('DOMContentLoaded', () => {
@@ -53,19 +52,11 @@ const { width = "100%", height = "100%", className = "" } = Astro.props;
     // Position camera
     camera.position.z = 2;
 
-    // Add orbit controls for dragging
-    const controls = new OrbitControls(camera, canvas);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.enableZoom = false;
-    controls.enablePan = false;
-
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
       mesh.rotation.x += 0.001;
       mesh.rotation.y += 0.001;
-      controls.update();
       renderer.render(scene, camera);
     };
 
