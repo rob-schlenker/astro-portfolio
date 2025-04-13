@@ -6,10 +6,19 @@ import type { AboutProps, HeroProps } from "@types";
 type Props = AboutProps & Pick<HeroProps, "name">;
 
 const { description, image, name } = Astro.props;
+
 ---
 
+<script>
+  import { revealHeadline } from '../scripts/animations';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    revealHeadline();
+  });
+</script>
+
 <Section text="About Me" href="about">
-  <div class="flex gap-12 md:gap-8 flex-col items-center md:flex-row">
+  <div class="flex gap-12 md:gap-8 flex-col items-center md:flex-row scroll-reveal">
     <p class="text-neutral w-auto text-base md:pr-5">{description}</p>
     <div
       class="w-64 h-80 bg-white p-4 flex-shrink-0 rotate-[5deg] md:rotate-[7deg]"
@@ -25,7 +34,7 @@ const { description, image, name } = Astro.props;
   </div>
 
   <!-- New Reading and Watching Section -->
-  <div class="mt-12 text-center">
+  <div class="mt-12 text-center scroll-reveal">
     <h3 class="text-2xl font-serif font-bold text-primary mb-4">Currently Reading & Watching</h3>
     <div class="flex flex-col md:flex-row justify-center gap-8">
       <div class="bg-black text-white p-6 rounded-lg shadow-lg flex-1">

@@ -9,6 +9,14 @@
       "@types": ["src/types/index.ts"],
       "@config": ["src/config/index.ts"],
       "@three": ["src/three/index.ts"]
-    }
-  }
+    },
+    "types": ["three"],
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.astro",
+    "src/types/**/*.d.ts"
+  ]
 }

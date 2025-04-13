@@ -1,10 +1,10 @@
 import type { SiteConfig, SiteContent } from '../types'
 
 export const SITE_CONFIG: SiteConfig = {
-  title: 'Rob Schlenker — Mobile & Web Developer',
+  title: 'Rob Schlenker — Web Developer',
   author: 'Rob Schlenker',
   description:
-    'Web Developer based in Michigan, USA. I specialize in web development and maintenance.',
+    'Web Developer based in Michigan, crafting dynamic and responsive websites that deliver exceptional user experiences. Specializing in front-end development and website maintenance, I bring ideas to life with clean, efficient code and a passion for innovation.',
   lang: 'en',
   siteLogo: '/rs-profile.jpeg',
   navLinks: [
@@ -27,7 +27,7 @@ export const SITE_CONTENT: SiteContent = {
     name: 'Rob Schlenker',
     specialty: 'Web Developer',
     summary:
-      'Web Developer based in Michigan, USA. I specialize in web development and maintenance.',
+      'Web Developer based in Michigan, crafting dynamic and responsive websites that deliver exceptional user experiences. Specializing in front-end development and website maintenance, I bring ideas to life with clean, efficient code and a passion for innovation.',
     email: 'schlenk7@gmail.com',
   },
   // experience: [
