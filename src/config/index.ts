@@ -77,7 +77,7 @@ export const SITE_CONTENT: SiteContent = {
       image: '/electric-love-site.png',
     },
     {
-      name: 'A.I. Chat Bot',
+      name: 'A.I. Chatbot',
       summary: 'A chatbot that uses A.I. to answer questions and provide information using ChatGPT.',
       linkPreview: 'https://robs-ai-chatbot.netlify.app/',
       linkSource: 'https://github.com/rob-schlenker/ai-chatbot',
