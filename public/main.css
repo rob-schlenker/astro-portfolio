@@ -101,5 +101,5 @@ h1.font-cycler {
 
 .no-hover:hover {
     transform: none; /* Disable hover transformations */
-    color: inherit; /* Reset hover text color */
+    color: white; /* Reset hover text color */
   }
