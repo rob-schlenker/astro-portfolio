@@ -6,10 +6,28 @@ type Props = HeroProps;
 const { name, specialty, summary, email } = Astro.props;
 ---
 
-<section class="py-24 md:py-32 relative overflow-hidden" id="#hero">
+<script>
+  // Add an event listener to elements with the 'font-cycler' class
+    const fontCyclerElements = document.querySelector('.font-target');
+    if (fontCyclerElements) { // Check if the element exists
+    fontCyclerElements.addEventListener('click', () => {
+      const htmlElement = fontCyclerElements as HTMLElement; // Cast to HTMLElement
+      htmlElement.classList.remove('font-cycler');
+      void htmlElement.offsetWidth; // Trigger reflow
+      htmlElement.classList.add('font-cycler');
+      console.log('Font cycled');
+    });
+  } else {
+    console.warn('No element with the class "font-cycler" found.');
+  }
+
+    console.log('Running')
+</script>
+
+<section class="py-24 md:py-32 relative overflow-visible" id="#hero">
   <div class="max-w-3xl">
     <h1
-      class="text-7xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest"
+      class=" font-target cursor-pointer  text-5xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest transition-transform duration-300 ease-in-out hover:scale-260 hover:rotate-3 hover:text-primary"
     >
       {name}
     </h1>
@@ -33,3 +51,5 @@ const { name, specialty, summary, email } = Astro.props;
     className="absolute -right-32 -top-36 -z-10 md:-top-32"
   />
 </section>
+
+

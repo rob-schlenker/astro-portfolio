@@ -29,6 +29,11 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/ico" href="/hacker_101114.ico" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Press+Start+2P&family=Special+Elite&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&family=Monoton&family=Notable&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/main.css" />
     <title>{title}</title>
 
     <meta property="og:title" content={title} />
@@ -41,6 +46,7 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
+  
   </head>
   <body class="font-sans bg-black">
     <Header siteLogo={siteLogo} navLinks={navLinks} />
