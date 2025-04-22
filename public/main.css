@@ -98,3 +98,8 @@ h1.font-cycler {
             background-position: top right;
     }
 }
+
+.no-hover:hover {
+    transform: none; /* Disable hover transformations */
+    color: inherit; /* Reset hover text color */
+  }

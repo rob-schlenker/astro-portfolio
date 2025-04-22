@@ -8,13 +8,23 @@ const { name, specialty, summary, email } = Astro.props;
 
 <script>
   // Add an event listener to elements with the 'font-cycler' class
-    const fontCyclerElements = document.querySelector('.font-target');
-    if (fontCyclerElements) { // Check if the element exists
-    fontCyclerElements.addEventListener('click', () => {
-      const htmlElement = fontCyclerElements as HTMLElement; // Cast to HTMLElement
+    const fontCyclerElement = document.querySelector('.font-target');
+    if (fontCyclerElement) {
+    fontCyclerElement.addEventListener('click', () => {
+      const htmlElement = fontCyclerElement as HTMLElement;
+
+      // Remove and re-add the animation class
       htmlElement.classList.remove('font-cycler');
       void htmlElement.offsetWidth; // Trigger reflow
       htmlElement.classList.add('font-cycler');
+
+      // Add a class to disable hover styles
+      htmlElement.classList.add('no-hover');
+
+      // Optionally remove the no-hover class after a delay
+      setTimeout(() => {
+        htmlElement.classList.remove('no-hover');
+      }, 500); // Adjust delay as needed
     });
   } else {
     console.warn('No element with the class "font-cycler" found.');
