@@ -107,7 +107,7 @@ h1.font-cycler {
 
   .book-3d {
     --book-thickness: 26px;
-    --cover-color: #4D9077;
+    --cover-color: #a7a7a7;
   
     perspective: 1000px;
     max-width: 250px;
@@ -151,6 +151,8 @@ h1.font-cycler {
     display:block;
     width:100%;
     height: auto;
+    max-height: 300px;
+
     border-radius: 0px 2px 2px 0px;
     transform: translateZ( var(--book-thickness) );
     box-shadow: 5px 5px 20px rgba(0,0,0, 0.1);

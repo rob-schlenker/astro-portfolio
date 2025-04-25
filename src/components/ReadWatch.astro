@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import Section from "./Section.astro";
 
 ---
   
   <!-- New Reading and Watching Section -->
-  <div class="mt-12 text-center scroll-reveal">
+  <!-- <div class="mt-12 text-center scroll-reveal">
     <h3 class="text-2xl font-serif font-bold text-primary mb-4">Currently Reading & Watching</h3>
     <div class="flex flex-col md:flex-row justify-center gap-8">
       <div class="bg-black text-white p-6 rounded-lg shadow-lg flex-1">
@@ -40,36 +41,30 @@ import { Image } from "astro:assets";
         </a>
       </div>
     </div>
-  </div>
-
-<div class="mt-12 text-center scroll-reveal hidden">
-    <h3 class="text-2xl font-serif font-bold text-primary mb-4">Currently Reading & Watching</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-baseline">
-        <div class="book-3d">
+  </div> -->
+  <Section text="Currently Reading" href="reading">
+<div class="mt-12 text-center scroll-reveal">
+    <div class="grid grid-cols-3 gap-8 items-baseline pt-6">
+        <div class="book-3d hover:rotate-2 transition-transform duration-300">
             <div class="book-3d__inner">
               <img class="book-3d__cover" src="/sun-also-rises.jpeg" alt="The Wizard of Oz by L. Frank Baum">
             </div>
           </div>
 
-          <div class="book-3d">
+          <div class="book-3d hover:rotate-2 transition-transform duration-300">
             <div class="book-3d__inner">
               <img class="book-3d__cover" src="/flan-oconnor.jpg" alt="The Wizard of Oz by L. Frank Baum">
             </div>
           </div>
 
-          <div class="book-3d">
+          <div class="book-3d hover:rotate-2 transition-transform duration-300">
             <div class="book-3d__inner mb-auto">
               <img class="book-3d__cover" src="/prompt-engin.jpg" alt="The Wizard of Oz by L. Frank Baum">
             </div>
           </div>
-
-          <div class="book-3d">
-            <div class="book-3d__inner">
-              <img class="book-3d__cover" src="/sun-also-rises.jpeg" alt="The Wizard of Oz by L. Frank Baum">
-            </div>
-          </div>
     </div>
 </div>
+  </Section>
 
 
 
