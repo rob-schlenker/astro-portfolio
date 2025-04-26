@@ -51,6 +51,9 @@ const ogImgUrl = canonicalURL + socialImage;
   </head>
   <body class="font-sans bg-black">
     <Header siteLogo={siteLogo} navLinks={navLinks} />
+    <div class="absolute w-full h-screen -z-10 overflow-hidden">
+      <ThreeScene className="-top-96 -right-2/4 absolute !w-[150%]"/>
+    </div>
     <main class="max-w-3xl px-5 mx-auto">
       <slot />
     </main>
