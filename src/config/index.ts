@@ -29,6 +29,7 @@ export const SITE_CONTENT: SiteContent = {
     summary:
       'Web Developer based in Michigan, crafting dynamic and responsive websites that deliver exceptional user experiences. Specializing in front-end development and website maintenance, I bring ideas to life with clean, efficient code and a passion for innovation.',
     email: 'schlenk7@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/rob-schlenker/',
   },
   // experience: [
   //   {
