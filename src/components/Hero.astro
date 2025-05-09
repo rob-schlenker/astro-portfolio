@@ -8,35 +8,52 @@ const { name, specialty, summary, linkedIn } = Astro.props;
 
 <script>
   // Add an event listener to elements with the 'font-cycler' class
-    const fontCyclerElement = document.querySelector('.font-target');
-    if (fontCyclerElement) {
-    fontCyclerElement.addEventListener('click', () => {
+  const fontCyclerElement = document.querySelector(".font-target");
+  if (fontCyclerElement) {
+    fontCyclerElement.addEventListener("click", () => {
       const htmlElement = fontCyclerElement as HTMLElement;
 
       // Remove and re-add the animation class
-      htmlElement.classList.remove('font-cycler');
+      htmlElement.classList.remove("font-cycler");
       void htmlElement.offsetWidth; // Trigger reflow
-      htmlElement.classList.add('font-cycler');
+      htmlElement.classList.add("font-cycler");
 
       // Add a class to disable hover styles
-      htmlElement.classList.add('no-hover');
+      htmlElement.classList.add("no-hover");
 
       // Optionally remove the no-hover class after a delay
       setTimeout(() => {
-        htmlElement.classList.remove('no-hover');
+        htmlElement.classList.remove("no-hover");
       }, 1500); // Adjust delay as needed
     });
   } else {
     console.warn('No element with the class "font-cycler" found.');
   }
 
-    console.log('Running')
+  // Select the button
+  const button = document.getElementById("shakeButton");
+
+  // Function to add and remove the shake class
+  function shakeButton() {
+    button.classList.add("shake");
+
+    // Remove the class after the animation completes
+    setTimeout(() => {
+      button.classList.remove("shake");
+    }, 500);
+  }
+
+  // Initial shake after page load
+  setTimeout(shakeButton, 1000);
+
+  // Set interval to shake every 5 seconds
+  setInterval(shakeButton, 5000);
 </script>
 
 <section class="py-24 md:py-32 relative overflow-hidden" id="#hero">
   <div class="max-w-3xl">
     <h1
-      class=" font-target cursor-pointer  text-5xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest transition-transform duration-300 ease-in-out md:hover:scale-260 md:hover:rotate-3 md:hover:text-primary"
+      class="font-target cursor-pointer text-5xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest transition-transform duration-300 ease-in-out md:hover:scale-260 md:hover:rotate-3 md:hover:text-primary"
     >
       {name}
     </h1>
@@ -50,15 +67,15 @@ const { name, specialty, summary, linkedIn } = Astro.props;
     </p>
 
     <a
-      class="text-sm py-5 px-8 text-[#fff] inline-block font-medium leading-5 bg-primary hover:bg-white hover:text-primary rounded-full transition-all duration-200 ease-in-out"
-      href={linkedIn} target=_blank>Get in Touch</a
+      id="shakeButton"
+      class="text-sm py-5 ml-2 px-8 text-[#fff] inline-block font-medium leading-5 bg-primary hover:bg-white hover:text-primary rounded-full transition-all duration-200 ease-in-out"
+      href={linkedIn}
+      target="_blank">Get in Touch</a
     >
   </div>
-  <ThreeScene 
-    width="400px" 
-    height="400px" 
+  <ThreeScene
+    width="400px"
+    height="400px"
     className="absolute -right-32 -top-36 -z-10 md:-top-32"
   />
 </section>
-
-
