@@ -157,3 +157,19 @@ h1.font-cycler {
     transform: translateZ( var(--book-thickness) );
     box-shadow: 5px 5px 20px rgba(0,0,0, 0.1);
   }
+
+  /* marquee css  */
+  
+  .animate-infinite-scroll {
+    animation: infinite-scroll 25s linear infinite;
+  }
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
