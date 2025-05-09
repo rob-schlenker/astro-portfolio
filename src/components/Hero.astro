@@ -35,12 +35,16 @@ const { name, specialty, summary, linkedIn } = Astro.props;
 
   // Function to add and remove the shake class
   function shakeButton() {
-    button.classList.add("shake");
+    if (button) {
+      button.classList.add("shake");
 
-    // Remove the class after the animation completes
-    setTimeout(() => {
-      button.classList.remove("shake");
-    }, 500);
+      // Remove the class after the animation completes
+      setTimeout(() => {
+        if (button) {
+          button.classList.remove("shake");
+        }
+      }, 500);
+    }
   }
 
   // Initial shake after page load
