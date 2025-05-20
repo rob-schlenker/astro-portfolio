@@ -6,6 +6,10 @@ import { SITE_CONFIG } from "@config";
 import Footer from "@components/Footer.astro";
 import ThreeScene from "@components/ThreeScene.astro";
 
+interface Window {
+  dataLayer: any[];
+}
+
 const {
   title,
   description,
@@ -24,6 +28,17 @@ const ogImgUrl = canonicalURL + socialImage;
 <!doctype html>
 <html lang={lang} class="scroll-smooth scroll-pt-16">
   <head>
+    <!-- Google Tag Manager -->
+    <script type="text/partytown" define:vars={{ GTM_ID: 'GTM-KXCVHPJ5' }}>
+      window.dataLayer = window.dataLayer || [];
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',GTM_ID);
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
@@ -50,6 +65,10 @@ const ogImgUrl = canonicalURL + socialImage;
   
   </head>
   <body class="font-sans bg-black">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXCVHPJ5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <Header siteLogo={siteLogo} navLinks={navLinks} />
     <div class="absolute w-full h-screen -z-10 overflow-hidden">
       <ThreeScene className="md:-top-96 -top-[34rem] -right-2/4 absolute !w-[150%]"/>
