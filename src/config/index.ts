@@ -64,6 +64,14 @@ export const SITE_CONTENT: SiteContent = {
   // ],
   projects: [
     {
+      name: "Starlit Library",
+      summary:
+        "A children's storybook website that features a collection of stories. The site is designed to be visually appealing and easy to navigate, with a focus on finding your new favorite childrens stories site.",
+      linkPreview: "https://starlit-library-psi.vercel.app/",
+      linkSource: "https://github.com/rob-schlenker/childrens-stories",
+      image: "/starlit-library-ss.png",
+    },
+    {
       name: "Tao Unfolds",
       summary:
         "A site that reveals a new Tao Te Ching verse each day, with a focus on simplicity and elegance. Features include an audio player secotin to help with meditation and a cookie saved journaling section.",
