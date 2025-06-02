@@ -6,7 +6,7 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@icons/*": ["src/icons/*"],
-      "@types": ["src/types/index.ts"],
+      "@types": ["src/types/index.ts", "astro/client"],
       "@config": ["src/config/index.ts"],
       "@three": ["src/three/index.ts"]
     },
@@ -17,6 +17,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.astro",
-    "src/types/**/*.d.ts"
+    "src/types/**/*.d.ts",
+    "cypress"
   ]
 }

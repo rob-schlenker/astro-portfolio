@@ -24,7 +24,13 @@
   "devDependencies": {
     "@types/scrollreveal": "^0.0.11",
     "@types/three": "^0.175.0",
+    "cypress": "^14.4.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "cypress"
+    ]
   }
 }

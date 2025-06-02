@@ -57,9 +57,10 @@ const { name, specialty, summary, linkedIn } = Astro.props;
 <section class="py-24 md:py-32 relative overflow-hidden" id="#hero">
   <div class="max-w-3xl">
     <h1
+      data-testid="hero-title"
       class="font-target cursor-pointer text-5xl font-serif mb-1.5 sm:text-8xl md:text-9xl md:mb-0 text-white font-bold tracking-tightest transition-transform duration-300 ease-in-out md:hover:scale-260 md:hover:rotate-3 md:hover:text-primary"
     >
-      {name}
+      {name.trim()}
     </h1>
     <p
       class="text-4xl sm:text-5xl leading-[46px] md:text-6xl font-serif text-primary font-bold tracking-tighter mb-9"
