@@ -121,5 +121,3 @@ export const SITE_CONTENT: SiteContent = {
     image: "/rs-profile.jpeg",
   },
 };
-
-// #5755ff
