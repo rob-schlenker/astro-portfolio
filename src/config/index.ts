@@ -82,7 +82,7 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Electic Love Tattoo",
       summary:
-        "A tattoo shop website that showcases the work of the artist and provides shop details.",
+        "A custom WordPress website for a tattoo shop that showcases the artist's work and provides shop details. Built with a custom theme focusing on brand identity and easy content management.",
       linkPreview: "https://electric-love-tattoo.netlify.app/",
       linkSource: "https://github.com/rob-schlenker/electric-love",
       image: "/electric-love-site.png",
