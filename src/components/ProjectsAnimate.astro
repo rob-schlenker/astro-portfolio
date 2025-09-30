@@ -1,0 +1,222 @@
+---
+import Section from "./Section.astro";
+import { Image } from "astro:assets";
+import type { ProjectProps } from "@types";
+
+interface Props {
+  projects: ProjectProps[];
+}
+
+const { projects } = Astro.props;
+
+console.log('Server-side projects:', projects); // Debug log
+
+// Serialize projects for the client
+const serializedProjects = projects.map(p => ({
+  name: p.name,
+  summary: p.summary,
+  image: p.image,
+  linkPreview: p.linkPreview,
+  linkSource: p.linkSource
+}));
+
+console.log('Serialized projects:', serializedProjects); // Debug log
+---
+
+<Section ext="Featured Projects" href="projects">
+    <!-- <header> -->
+        <h2 class="text-4xl md:text-5xl font-serif font-bold tracking-tighter text-white mb-14">Featured Works</h2>
+    <!-- </header> -->
+
+    <section class="work"></section>
+</Section>
+
+<!-- Pass data to client script -->
+<script type="application/json" id="projects-data" set:html={JSON.stringify(serializedProjects)} />
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from 'lenis';
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded');
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lenis = new Lenis();
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    })
+    gsap.ticker.lagSmoothing(0);
+
+    // Get projects from the JSON script tag
+    const projectsData = document.getElementById('projects-data');
+    console.log('Projects data element:', projectsData);
+    console.log('Projects data content:', projectsData?.textContent);
+    
+    if (!projectsData) {
+        console.error('Could not find projects-data element');
+        return;
+    }
+
+    const projects = JSON.parse(projectsData.textContent);
+    console.log('Parsed projects:', projects);
+    console.log('Number of projects:', projects.length);
+
+    const workContainer = document.querySelector('.work');
+    console.log('Work container:', workContainer);
+
+    if (!workContainer) {
+        console.error('Could not find work container');
+        return;
+    }
+
+    const createWorkItem = (project) => {
+        console.log('Creating work item for:', project.name);
+        const workItem = document.createElement('div');
+        workItem.className = "work-item";
+        workItem.innerHTML = `
+            <div class="work-item-img my-16">
+                <img src="${project.image}" alt="${project.name}" />
+            </div>
+            <div class="work-item-copy">
+                <h3 class="text-3xl font-medium font-serif mb-5 text-primary">${project.name}</h3>
+                <p class="text-neutral text-base">${project.summary}</p>
+            </div>
+        `;
+        return workItem;       
+    }
+
+    // Create rows with 2 items each
+    for (let i = 0; i < projects.length; i += 2) {
+        const row = document.createElement('div');
+        row.className = "row";
+
+        row.appendChild(createWorkItem(projects[i]));
+
+        if (i + 1 < projects.length) {
+            row.appendChild(createWorkItem(projects[i + 1]));
+        }
+        
+        console.log('Appending row to container');
+        workContainer.appendChild(row);
+    }
+
+    console.log('All rows created');
+
+    // Initial GSAP setup
+    gsap.set(".work-item", {
+        y: 1000,
+    })
+
+    document.querySelectorAll(".row").forEach((row, rowIndex) => {
+        console.log('Setting up animations for row', rowIndex);
+        const workItems = row.querySelectorAll(".work-item");
+
+        workItems.forEach((item, itemIndex) => {
+            const isLeftProjectItem = itemIndex === 0;
+
+            gsap.set(item, {
+                rotation: isLeftProjectItem ? -60 : 60,
+                transformOrigin: "center center",
+            })
+        })
+
+        ScrollTrigger.create({
+            trigger: row,
+            start: "top 60%",
+            onEnter: () => {
+                console.log('Animating row', rowIndex);
+                gsap.to(workItems, {
+                    y: 0,
+                    rotation: 0,
+                    duration: 1,
+                    ease: "power4.out",
+                    stagger: 0.25,
+                })
+            }
+        })
+    })
+
+    console.log('All animations set up');
+});
+</script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    Section {
+
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    header {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        text-align: left;
+        align-content: center;
+        padding: 1.25rem;
+    }
+    
+    .work {
+        position: relative;
+        width: 100%;
+        min-height: 500px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        overflow: hidden;
+    }
+
+    .row {
+        width: 100%;
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .work-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .work-item-img {
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        background-color: #ddd;
+    }
+
+    .work-item-copy h3 {
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .work-item-copy p {
+        color: white;
+    }
+
+    @media (max-width: 1000px) {
+        .work,
+        .row {
+            gap: 2rem;
+        }
+
+        .row {
+            flex-direction: column;
+        }
+    }
+</style>
