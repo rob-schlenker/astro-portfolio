@@ -19,9 +19,9 @@ const serializedProjects = projects.map(p => ({
 ---
 
 <Section text="Featured Projects" href="projects">
-    <h2 class="text-4xl md:text-5xl font-serif font-bold tracking-tighter text-white mb-14">Featured Works</h2>
 
     <section class="work"></section>
+
 </Section>
 
 <!-- Pass data to client script -->
@@ -75,39 +75,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Create rows with 2 items each
-    for (let i = 0; i < projects.length; i += 2) {
-        const row = document.createElement('div');
-        row.className = "row";
+for (let i = 0; i < projects.length; i += 1) {
+    const row = document.createElement('div');
+    row.className = "row";
 
-        row.appendChild(createWorkItem(projects[i]));
+    row.appendChild(createWorkItem(projects[i]));
 
-        if (i + 1 < projects.length) {
-            row.appendChild(createWorkItem(projects[i + 1]));
-        }
-        
-        workContainer.appendChild(row);
-    }
+    workContainer.appendChild(row);
+}
 
     // Initial GSAP setup
     gsap.set(".work-item", {
         y: 1000,
     })
 
-    document.querySelectorAll(".row").forEach((row) => {
+    document.querySelectorAll(".row").forEach((row, rowIndex) => {
         const workItems = row.querySelectorAll(".work-item");
 
-        workItems.forEach((item, itemIndex) => {
-            const isLeftProjectItem = itemIndex === 0;
-
+        // Set initial alternating rotation for each work item (here one item per row)
+        workItems.forEach((item) => {
+            const rotation = (rowIndex % 2 === 0) ? 60 : -60;
             gsap.set(item, {
-                rotation: isLeftProjectItem ? -60 : 60,
+                rotation: rotation,
                 transformOrigin: "center center",
-            })
-        })
+            });
+        });
 
+        // Create scroll trigger to animate rotation and position to normal on row entering viewport
         ScrollTrigger.create({
             trigger: row,
-            start: "top 60%",
+            start: "top 50%",
             onEnter: () => {
                 gsap.to(workItems, {
                     y: 0,
@@ -115,10 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     duration: 1,
                     ease: "power4.out",
                     stagger: 0.25,
-                })
+                });
             }
-        })
-    })
+        });
+    });
+
 });
 </script>
 
