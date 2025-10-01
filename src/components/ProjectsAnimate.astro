@@ -1,6 +1,5 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
 import type { ProjectProps } from "@types";
 
 interface Props {
@@ -8,8 +7,6 @@ interface Props {
 }
 
 const { projects } = Astro.props;
-
-console.log('Server-side projects:', projects); // Debug log
 
 // Serialize projects for the client
 const serializedProjects = projects.map(p => ({
@@ -19,20 +16,16 @@ const serializedProjects = projects.map(p => ({
   linkPreview: p.linkPreview,
   linkSource: p.linkSource
 }));
-
-console.log('Serialized projects:', serializedProjects); // Debug log
 ---
 
-<Section ext="Featured Projects" href="projects">
-    <!-- <header> -->
-        <h2 class="text-4xl md:text-5xl font-serif font-bold tracking-tighter text-white mb-14">Featured Works</h2>
-    <!-- </header> -->
+<Section text="Featured Projects" href="projects">
+    <h2 class="text-4xl md:text-5xl font-serif font-bold tracking-tighter text-white mb-14">Featured Works</h2>
 
     <section class="work"></section>
 </Section>
 
 <!-- Pass data to client script -->
-<script type="application/json" id="projects-data" set:html={JSON.stringify(serializedProjects)} />
+<script type="application/json" id="projects-data" set:html={JSON.stringify(serializedProjects)} is:inline />
 
 <script>
 import { gsap } from "gsap";
@@ -40,8 +33,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from 'lenis';
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded');
-    
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis();
@@ -53,28 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Get projects from the JSON script tag
     const projectsData = document.getElementById('projects-data');
-    console.log('Projects data element:', projectsData);
-    console.log('Projects data content:', projectsData?.textContent);
     
-    if (!projectsData) {
+    if (!projectsData || !projectsData.textContent) {
         console.error('Could not find projects-data element');
         return;
     }
 
     const projects = JSON.parse(projectsData.textContent);
-    console.log('Parsed projects:', projects);
-    console.log('Number of projects:', projects.length);
 
     const workContainer = document.querySelector('.work');
-    console.log('Work container:', workContainer);
 
     if (!workContainer) {
         console.error('Could not find work container');
         return;
     }
 
-    const createWorkItem = (project) => {
-        console.log('Creating work item for:', project.name);
+    const createWorkItem = (project: { name: string; summary: string; image: string }) => {
         const workItem = document.createElement('div');
         workItem.className = "work-item";
         workItem.innerHTML = `
@@ -100,19 +85,15 @@ document.addEventListener('DOMContentLoaded', () => {
             row.appendChild(createWorkItem(projects[i + 1]));
         }
         
-        console.log('Appending row to container');
         workContainer.appendChild(row);
     }
-
-    console.log('All rows created');
 
     // Initial GSAP setup
     gsap.set(".work-item", {
         y: 1000,
     })
 
-    document.querySelectorAll(".row").forEach((row, rowIndex) => {
-        console.log('Setting up animations for row', rowIndex);
+    document.querySelectorAll(".row").forEach((row) => {
         const workItems = row.querySelectorAll(".work-item");
 
         workItems.forEach((item, itemIndex) => {
@@ -128,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
             trigger: row,
             start: "top 60%",
             onEnter: () => {
-                console.log('Animating row', rowIndex);
                 gsap.to(workItems, {
                     y: 0,
                     rotation: 0,
@@ -139,8 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     })
-
-    console.log('All animations set up');
 });
 </script>
 
@@ -149,10 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }
-
-    Section {
-
     }
 
     img {
