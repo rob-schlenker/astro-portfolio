@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const createWorkItem = (project: { name: string; summary: string; image: string }) => {
+    const createWorkItem = (project: { name: string; summary: string; image: string; linkPreview: string; linkSource: string }) => {
         const workItem = document.createElement('div');
         workItem.className = "work-item";
         workItem.innerHTML = `
@@ -68,6 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="text-3xl font-medium font-serif mb-5 text-primary">${project.name}</h3>
                 <p class="text-neutral text-base">${project.summary}</p>
             </div>
+                          <div class="pt-10 flex gap-5 text-white">
+                <a
+                  href=${project.linkSource}
+                  target="_blank"
+                  class="hover:underline after:content-[url(/external.svg)] after:relative after:bottom-[-5px]"
+                >
+                  Source
+                </a>
+                <a
+                  href=${project.linkPreview}
+                  target="_blank"
+                  class="hover:underline after:content-[url(/external.svg)] after:relative after:bottom-[-5px]"
+                >
+                  Preview
+                </a>
+              </div>
         `;
         return workItem;       
     }

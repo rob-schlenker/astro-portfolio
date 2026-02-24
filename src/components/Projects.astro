@@ -11,9 +11,9 @@ const { projects } = Astro.props;
 ---
 
 <script>
-  import { revealHeadline } from '../scripts/animations';
+  import { revealHeadline } from "../scripts/animations";
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     revealHeadline();
   });
 </script>
@@ -33,6 +33,7 @@ const { projects } = Astro.props;
                 {name}
               </h3>
               <p class="text-neutral text-base">{summary}</p>
+              <h1>TEST</h1>
               <div class="pt-10 flex gap-5 text-white">
                 <a
                   href={linkSource}
