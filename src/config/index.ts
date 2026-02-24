@@ -64,6 +64,14 @@ export const SITE_CONTENT: SiteContent = {
   // ],
   projects: [
     {
+      name: "Spotify Artist Guessing Game",
+      summary:
+        "A real-time guessing game where players predict which artist has more Spotify listeners over 10 rounds. Built with Next.js, React, Framer Motion, and the Spotify Web API, it features dynamic matchups, score persistence, mobile-optimized UI, and a leaderboard system.",
+      linkPreview: "https://spotify-guessing-game-pearl.vercel.app/",
+      linkSource: "https://github.com/rob-schlenker/spotify-guessing-game",
+      image: "/spotify-guessing-game.png",
+    },
+    {
       name: "Starlit Library",
       summary:
         "A children's storybook website that features a collection of stories. The site is designed to be visually appealing and easy to navigate, with a focus on finding your new favorite childrens stories site.",
